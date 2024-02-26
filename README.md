@@ -1,10 +1,8 @@
-# nsp-web-page
+# React + Vite
 
-Official Website of NITA South Paribar
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Branching Strategy:
+Currently, two official plugins are available:
 
-1. Please create your own branch first
-2. Then take the pull from "dev_staging" branch if you are a developer / contributor.Else take the pull from main branch (for visitors).
-3. Then make your chengs from your own branch and then push the code into your branch
-4. Then create a pull request to merge into "dev_staging" branch.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
