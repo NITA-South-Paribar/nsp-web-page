@@ -18,14 +18,10 @@ export const Navbar = () => {
           </Link>
           <Link>
             <li className="my-4 py-4 border-b border-slate-700 hover:bg-slate-700 hover:rounded">
-              Alumnus
+              Members
             </li>
           </Link>
-          <Link>
-            <li className="my-4 py-4 border-b border-slate-700 hover:bg-slate-700 hover:rounded">
-              Guidance
-            </li>
-          </Link>
+
           <Link>
             <li className="my-4 py-4 border-b border-slate-700 hover:bg-slate-700 hover:rounded">
               Contact
@@ -60,12 +56,7 @@ export const Navbar = () => {
               </Link>
               <Link>
                 <li className="hover:text-yellow-400 transition border-b-2 border-slate-800 hover:border-yellow-400 cursor-pointer">
-                  Alumnus
-                </li>
-              </Link>
-              <Link>
-                <li className="hover:text-yellow-400 transition border-b-2 border-slate-800 hover:border-yellow-400 cursor-pointer">
-                  Guidance
+                  Members
                 </li>
               </Link>
               <Link>
