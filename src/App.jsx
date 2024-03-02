@@ -1,10 +1,13 @@
-import "./App.css";
+import { Navbar } from "./components/Navbar";
 
 function App() {
   return (
     <>
-      <div className="text-center font-sans">
-        <h1>Official Web Page of NSP</h1>
+      <div className="bg-slate-800">
+        <Navbar />
+      </div>
+      <div className="text-3xl text-center mx-10 font-sans font-bold">
+        <h1>Official Website of NSP</h1>
       </div>
     </>
   );
