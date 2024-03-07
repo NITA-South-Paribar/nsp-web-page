@@ -1,6 +1,6 @@
 # nsp-web-page
 
-Official Website of NITA South Paribar
+Official Website of NSP
 
 Branching Strategy:
 
@@ -14,3 +14,8 @@ Branching Strategy:
 1. Clone the repository, switch to a new branch
 2. Go to the project directory in your teminal, run **npm install**
 3. Run **npm run dev** and navigate to local port 5173 or **http://localhost:5173/nsp-web-page/**
+
+
+# Developers
+
+1. Sreya Nath
