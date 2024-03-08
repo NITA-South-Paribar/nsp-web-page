@@ -19,4 +19,4 @@ Branching Strategy:
 # Developers
 
 1. Sreya Nath
-2.Rahul Banik
+2. Rahul Banik
