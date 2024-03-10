@@ -1,6 +1,6 @@
 # nsp-web-page
 
-Official Website of NITA South Paribar
+Official Website of NSP
 
 Branching Strategy:
 
@@ -18,5 +18,5 @@ Branching Strategy:
 
 ## Collaborators
 1.Sudip karmakar.
-
-
+2. Kritidipta Datta
+3. Sreya Nath
