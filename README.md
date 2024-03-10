@@ -16,7 +16,7 @@ Branching Strategy:
 3. Run **npm run dev** and navigate to local port 5173 or **http://localhost:5173/nsp-web-page/**
 
 
-# Developers
-
-1. Sreya Nath
+## Collaborators
+1.Sudip karmakar.
 2. Kritidipta Datta
+3. Sreya Nath
