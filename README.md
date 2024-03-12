@@ -19,3 +19,4 @@ Branching Strategy:
 # Developers
 
 1. Sreya Nath
+2. Ishita Karmakar
