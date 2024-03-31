@@ -33,7 +33,7 @@ export const Navbar = () => {
             </Link>
             <Link to="/signup">
               <button className="bg-gradient-to-r from-green-500 to-green-900 py-2 px-4 rounded-md cursor-pointer hover:bg-gradient-to-t hover:from-green-400 hover:to-green-900">
-                Sign Up
+                Member Sign Up
               </button>
             </Link>
           </div>
