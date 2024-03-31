@@ -1,5 +1,3 @@
-import React from "react";
-
 import insta from "../../assets/instagramlogo.jpeg";
 import linkedin from "../../assets/linkedinlogo.png";
 
@@ -14,7 +12,7 @@ export const Footer = () => {
             </h3>
             <a
               class="con bg-orange-500 hover:bg-orange-700  rounded-3xl text-white inline-block text-lg leading-6 px-5 py-3 transition duration-300 ease-out motion-safe:hover:-translate-y-0.5 motion-safe:transition"
-              href="https://alterdomus.com/contact-us/"
+              href="#"
             >
               Contact us
             </a>
@@ -27,7 +25,9 @@ export const Footer = () => {
           <div className="w-36 m-4 flex justify-start flex-col text-white">
             <h4 class="text-xs leading-17 mb-3">NITA South Paribar</h4>
             <div className="flex flex-row">
-              <a href="https://www.linkedin.com/company/nita-south-pariwar/">
+              <a
+                href="#"
+              >
                 <p>
                   <img
                     src={insta}
@@ -36,12 +36,15 @@ export const Footer = () => {
                   />
                 </p>
               </a>
-              <a href="https://www.linkedin.com/company/nita-south-pariwar/">
+              <a
+                href="https://www.linkedin.com/company/nita-south-pariwar/"
+                target="_blank"
+              >
                 <p>
                   <img
                     src={linkedin}
                     alt=""
-                    class="w-2/5      motion-safe:hover:-translate-y-0.5 motion-safe:transition"
+                    class="w-2/5 motion-safe:hover:-translate-y-0.5 motion-safe:transition"
                   />
                 </p>
               </a>
@@ -49,18 +52,18 @@ export const Footer = () => {
           </div>
           <div className="w-36 m-4 flex justify-start flex-col text-white">
             <h4 class="text-xs leading-17 mb-3"> Sectors</h4>
-            <a class="text-gray-700 no-underline" href="/Private Equity">
+            <a class="text-gray-700 no-underline" href="">
               <p class="text-xs leading-4 my-2 cursor-pointer text-slate-400 hover:border-yellow-400 hover:text-yellow-400">
                 Private Equity
               </p>
             </a>
-            <a class="text-gray-700 no-underline" href="/healthplan">
+            <a class="text-gray-700 no-underline" href="">
               <p class="text-xs leading-4 my-2 cursor-pointer text-slate-400  hover:border-yellow-400 hover:text-yellow-400">
                 {" "}
                 Real Assets
               </p>
             </a>
-            <a class="text-gray-700 no-underline" href="/individual">
+            <a class="text-gray-700 no-underline" href="">
               <p class="text-xs leading-4 my-2 cursor-pointer text-slate-400  hover:border-yellow-400 hover:text-yellow-400">
                 Private Debt
               </p>
@@ -70,17 +73,17 @@ export const Footer = () => {
             <h4 class="text-xs leading-17 mb-3 hover:border-yellow-400 ">
               About us
             </h4>
-            <a class="text-gray-700 no-underline" href="/resources">
+            <a class="text-gray-700 no-underline" href="">
               <p class="text-xs leading-4 my-2 cursor-pointer text-slate-400 hover:border-yellow-400 hover:text-yellow-400">
                 Who We Are
               </p>
             </a>
-            <a class="text-gray-700 no-underline" href="/resources">
+            <a class="text-gray-700 no-underline" href="">
               <p class="text-xs leading-4 my-2 cursor-pointer text-slate-400 hover:border-yellow-400 hover:text-yellow-400">
                 Our Leadership
               </p>
             </a>
-            <a class="text-gray-700 no-underline" href="/resources">
+            <a class="text-gray-700 no-underline" href="">
               <p class="text-xs leading-4 my-2 cursor-pointer text-slate-400 hover:border-yellow-400 hover:text-yellow-400 ">
                 Careers
               </p>
@@ -91,17 +94,17 @@ export const Footer = () => {
             <h4 class="text-xs leading-17 mb-3 hover:border-yellow-400 ">
               Locations
             </h4>
-            <a class="text-gray-700 no-underline" href="/about">
+            <a class="text-gray-700 no-underline" href="">
               <p class="text-xs leading-4 my-2 cursor-pointer text-slate-400  hover:border-yellow-400  hover:text-yellow-400">
                 India
               </p>
             </a>
-            <a class="text-gray-700 no-underline" href="/press">
+            <a class="text-gray-700 no-underline" href="">
               <p class="text-xs leading-4 my-2 cursor-pointer text-slate-400 hover:border-yellow-400 hover:text-yellow-400 ">
                 Europe
               </p>
             </a>
-            <a class="text-gray-700 no-underline" href="/contact">
+            <a class="text-gray-700 no-underline" href="">
               <p class="text-xs leading-4 my-2 cursor-pointer text-slate-400 hover:border-yellow-400 hover:text-yellow-400">
                 Asia
               </p>
@@ -117,28 +120,28 @@ export const Footer = () => {
             </p>
           </div>
           <div className="flex flex-row">
-            <a href="/terms">
+            <a href="">
               <div>
                 <p class="text-white font-semibold text-xs leading-5 ml-8">
                   Terms & Conditions
                 </p>
               </div>
             </a>
-            <a href="/privacy">
+            <a href="">
               <div>
                 <p class="text-white font-semibold text-xs leading-5 ml-8">
                   Privacy
                 </p>
               </div>
             </a>
-            <a href="/security">
+            <a href="">
               <div>
                 <p class="text-white font-semibold text-xs leading-5 ml-8">
                   Security
                 </p>
               </div>
             </a>
-            <a href="/cookie">
+            <a href="">
               <div>
                 <p class="text-white font-semibold text-xs leading-5 ml-8">
                   Cookie Declaration
@@ -151,4 +154,3 @@ export const Footer = () => {
     </div>
   );
 };
-
