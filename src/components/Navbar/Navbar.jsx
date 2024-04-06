@@ -14,7 +14,7 @@ export const Navbar = () => {
     <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg bg-slate-800 mx-60 my-5 rounded-lg text-white w-3/4 px-6">
       <div className="container mx-auto relative text-md font-semibold">
         <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center flex-shrink-0 cursor-pointer">
+          <Link to="" className="flex items-center flex-shrink-0 cursor-pointer">
             <img className="h-10 w-12" src={logo} alt="" />
             <span className="text-2xl mx-1 tracking-tight font-sans">NSP</span>
           </Link>
@@ -31,7 +31,7 @@ export const Navbar = () => {
                 Sign In
               </button>
             </Link>
-            <Link to="/signup">
+            <Link to="signup">
               <button className="bg-gradient-to-r from-green-500 to-green-900 py-2 px-4 rounded-md cursor-pointer hover:bg-gradient-to-t hover:from-green-400 hover:to-green-900">
                 Member Sign Up
               </button>
