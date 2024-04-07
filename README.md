@@ -19,4 +19,11 @@ Official Website of NITA South Paribar
 
 ## Collaborators
 
+<<<<<<< HEAD
+# Developers
+
+1. Sreya Nath
+2. Ishita Karmakar
+=======
 1.Sudip karmakar. 2. Kritidipta Datta 3. Sreya Nath 4.subhrajit saha
+>>>>>>> 0de33ab42581693ed4426cb04ec0d779c0125550
