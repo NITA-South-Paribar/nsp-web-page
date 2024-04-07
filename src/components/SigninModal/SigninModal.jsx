@@ -48,8 +48,8 @@ export const SigninModal = ({ open, onClose }) => {
   const isDisabled = !(email && password);
 
   return (
-    <div className="   mt-10  font-roboto h-screen min-w-[300px] overflow-auto pt-16 fixed top-0 left-0 w-full z-50">
-      <div className="bg-white border border-gray-400 rounded-lg  h-85  mx-auto min-w-[300px] px-5 py-4 w-[500px]">
+    <div className=" bg-black bg-opacity-40   backdrop-blur-sm  font-roboto h-screen  overflow-auto pt-16 fixed top-0 left-0 w-full z-100">
+      <div className="mt-10 bg-white border border-gray-400 rounded-lg  h-auto  mx-auto  px-5 py-4 w-[500px]">
         <div className="flex justify-between  items-center relative text-gray-200 font-bold text-lg h-30px ">
           <img
             src={logo}

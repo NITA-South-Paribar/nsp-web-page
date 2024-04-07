@@ -14,7 +14,10 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg bg-slate-800 mx-60 my-5 rounded-lg text-white w-3/4 px-6">
+
+
+  
+    <nav className="sticky top-0 z-50 py-3  bg-slate-800 mx-60 my-5 rounded-lg text-white w-3/4 px-6">
       <div className="container mx-auto relative text-md font-semibold">
         <div className="flex justify-between items-center">
           <Link
@@ -92,6 +95,7 @@ export const Navbar = () => {
         {/* Responsive Navbar Ends here */}
       </div>
     </nav>
+  
   );
 };
 
