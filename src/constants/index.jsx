@@ -2,15 +2,15 @@ import me from "../assets/User.jpeg"
 export const navItems = [
     {
         label: "ABOUT",
-        href: "/about"
+        href: "/nsp-web-page/about"
     },
     {
         label: "GALLERY",
-        href: "/gallery"
+        href: "/nsp-web-page/gallery"
     },
     {
         label: "MEMBERS",
-        href: "/members"
+        href: "/nsp-web-page/members"
     },
     {
         label: "CONTACT",
