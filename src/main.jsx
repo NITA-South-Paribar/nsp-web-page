@@ -13,14 +13,13 @@ import Home from './components/Home/Home.jsx'
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App/>}>
+    <Route path="/nsp-web-page" element={<App/>}>
       <Route path="" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/gallery" element={<ImageGallery />} />
-      <Route path="/members" element={<MemberDasboard />} />
-      <Route path="/members/:memberId" element={<MemberDetails />} />
-      <Route path="/signup" element={<MemberSignUp />} />
-      
+      <Route path="about" element={<About />} />
+      <Route path="gallery" element={<ImageGallery />} />
+      <Route path="members" element={<MemberDasboard />} />
+      <Route path="members/:memberId" element={<MemberDetails />} />
+      <Route path="signup" element={<MemberSignUp />} />
     </Route>
   )
 )

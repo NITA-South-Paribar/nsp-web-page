@@ -6,8 +6,8 @@ import { useState } from "react";
 
 import { SigninModal } from "../SigninModal/SigninModal";
 export const Navbar = () => {
-  const [openModal,setOpenModal]=useState(false);
-  const [showModal,setShowModal]=useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [mobileDraweOpen, setMobileDraweOpen] = useState(false);
   const toggleNavbar = () => {
     setMobileDraweOpen(!mobileDraweOpen);
@@ -17,25 +17,40 @@ export const Navbar = () => {
     <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg bg-slate-800 mx-60 my-5 rounded-lg text-white w-3/4 px-6">
       <div className="container mx-auto relative text-md font-semibold">
         <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center flex-shrink-0 cursor-pointer">
+          <Link
+            to=""
+            className="flex items-center flex-shrink-0 cursor-pointer"
+          >
             <img className="h-10 w-12" src={logo} alt="" />
             <span className="text-2xl mx-1 tracking-tight font-sans">NSP</span>
           </Link>
           <ul className="hidden lg:flex ml-14 space-x-10">
             {navItems.map((item, index) => (
               <li key={index}>
-                <NavLink to={item.href} className="cursor-pointer rounded-lg py-2 px-2 hover:bg-gray-700">{item.label}</NavLink>
+                <NavLink
+                  to={item.href}
+                  className="cursor-pointer rounded-lg py-2 px-2 hover:bg-gray-700"
+                >
+                  {item.label}
+                </NavLink>
               </li>
             ))}
           </ul>
           <div className="hidden lg:flex justify-center space-x-6 items-center">
-              <div>
-              <button onClick={()=>setOpenModal(true)} className="text-yellow-500 hover:text-white rounded-lg py-2 px-4 text-center hover:bg-gray-700">
-             Sign in
+            <div>
+              <button
+                onClick={() => setOpenModal(true)}
+                className="text-yellow-500 hover:text-white rounded-lg py-2 px-4 text-center hover:bg-gray-700"
+              >
+                Sign in
               </button>
-              <SigninModal open={openModal} onClose={()=>setOpenModal(false)} />
-              </div>
-            <Link to="/signup">
+              <SigninModal
+                open={openModal}
+                onClose={() => setOpenModal(false)}
+              />
+            </div>
+
+            <Link to="signup">
               <button className="bg-gradient-to-r from-green-500 to-green-900 py-2 px-4 rounded-md cursor-pointer hover:bg-gradient-to-t hover:from-green-400 hover:to-green-900">
                 Member Sign Up
               </button>
@@ -80,8 +95,9 @@ export const Navbar = () => {
   );
 };
 
-
-{/* <a href="#_" class="rounded relative inline-flex group items-center justify-center px-3.5 py-2 m-1 cursor-pointer  bg-gradient-to-tr from-purple-600 to-purple-500 border-purple-700 text-white">
+{
+  /* <a href="#_" class="rounded relative inline-flex group items-center justify-center px-3.5 py-2 m-1 cursor-pointer  bg-gradient-to-tr from-purple-600 to-purple-500 border-purple-700 text-white">
 <span class="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
 <span class="relative">Button Text</span>
-</a> */}
+</a> */
+}
