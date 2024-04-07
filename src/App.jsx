@@ -1,14 +1,14 @@
-import { Navbar } from "./components/Navbar";
+import { Outlet } from "react-router-dom";
+import { Navbar } from "./components/Navbar/Navbar";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   return (
     <>
-      <div className="bg-slate-800">
-        <Navbar />
-      </div>
-      <div className="text-3xl text-center mx-10 font-sans font-bold">
-        <h1>Official Website of NITA South Paribar</h1>
-      </div>
+      <Navbar />
+      <Outlet />
+      <Footer />
+      
     </>
   );
 }
