@@ -4,7 +4,10 @@ import { navItems } from "../../constants";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
+import { SigninModal } from "../SigninModal/SigninModal";
 export const Navbar = () => {
+  const [openModal,setOpenModal]=useState(false);
+  const [showModal,setShowModal]=useState(false);
   const [mobileDraweOpen, setMobileDraweOpen] = useState(false);
   const toggleNavbar = () => {
     setMobileDraweOpen(!mobileDraweOpen);
@@ -26,11 +29,12 @@ export const Navbar = () => {
             ))}
           </ul>
           <div className="hidden lg:flex justify-center space-x-6 items-center">
-            <Link to="">
-              <button className="text-yellow-500 hover:text-white rounded-lg py-2 px-4 text-center hover:bg-gray-700">
-                Sign In
+              <div>
+              <button onClick={()=>setOpenModal(true)} className="text-yellow-500 hover:text-white rounded-lg py-2 px-4 text-center hover:bg-gray-700">
+             Sign in
               </button>
-            </Link>
+              <SigninModal open={openModal} onClose={()=>setOpenModal(false)} />
+              </div>
             <Link to="/signup">
               <button className="bg-gradient-to-r from-green-500 to-green-900 py-2 px-4 rounded-md cursor-pointer hover:bg-gradient-to-t hover:from-green-400 hover:to-green-900">
                 Member Sign Up
