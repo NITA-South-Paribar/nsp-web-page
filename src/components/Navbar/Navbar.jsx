@@ -49,6 +49,7 @@ export const Navbar = () => {
               </button>
               <SigninModal
                 open={openModal}
+                onOpen= {() => setOpenModal(true)}
                 onClose={() => setOpenModal(false)}
               />
             </div>
