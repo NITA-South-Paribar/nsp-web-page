@@ -1,6 +1,6 @@
 import { TbBrandGithubFilled } from "react-icons/tb";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
-
+import { FaXTwitter } from "react-icons/fa6";
 export const Footer = () => {
   let iconStyles = { color: "white", fontSize: "3em" };
   return (
@@ -35,6 +35,14 @@ export const Footer = () => {
                 target="_blank"
               >
                 <FaLinkedinIn style={iconStyles} />
+              </a>
+            </div>
+            <div className="motion-safe:hover:-translate-y-0.5 motion-safe:transition">
+              <a
+                href="https://www.linkedin.com/company/nita-south-pariwar/"
+                target="_blank"
+              >
+                <FaXTwitter style={iconStyles} />
               </a>
             </div>
             <div className="motion-safe:hover:-translate-y-0.5 motion-safe:transition">
