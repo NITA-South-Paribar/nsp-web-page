@@ -2,9 +2,8 @@ import React from "react";
 import logo from "../../assets/NSP-Logo.png";
 import { X, Download } from "lucide-react";
 import { useState } from "react";
-export const SigninModal = ({ open, onClose }) => {
-  if (!open) return null;
-
+import { useEffect } from "react";
+export const SigninModal = ({ open, onOpen, onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -25,10 +24,10 @@ export const SigninModal = ({ open, onClose }) => {
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
     const password = event.target.value;
-    const passwordRegex=
-    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+{}|:;<>,.?~[\]\-\\]).{8,20}$/i;
+    const passwordRegex =
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+{}|:;<>,.?~[\]\-\\]).{8,20}$/i;
 
-    if ((!passwordRegex.test(password))) {
+    if (!passwordRegex.test(password)) {
       setPasswordError("Please enter a valid Password");
     } else {
       setPasswordError("");
@@ -46,30 +45,68 @@ export const SigninModal = ({ open, onClose }) => {
   };
 
   const isDisabled = !(email && password);
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 27) {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [open]);
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+   
+   
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    
+    };
+  }, []);
+
+  
+  const handleclick = (e) => {
+    if (
+      e.target.className ===
+      " bg-black bg-opacity-40   backdrop-blur-sm  font-roboto h-screen  overflow-auto pt-16 fixed top-0 left-0 w-full z-100"
+    ) {
+      console.log("hi");
+      onClose();
+    }
+  };
+  if (!open) return null;
 
   return (
-    <div className="   mt-10  font-roboto h-screen min-w-[300px] overflow-auto pt-16 fixed top-0 left-0 w-full z-50">
-      <div className="bg-white border border-gray-400 rounded-lg  h-85  mx-auto min-w-[300px] px-5 py-4 w-[500px]">
+    <>
+    <div
+      onClick={handleclick}
+      className=" bg-black bg-opacity-40   backdrop-blur-sm  font-roboto h-screen  overflow-auto pt-16 fixed top-0 left-0 w-full z-100"
+    >
+      <div className="mt-10 bg-white border border-gray-400 rounded-lg  h-auto  mx-auto  px-5 py-4 w-[500px]">
         <div className="flex justify-between  items-center relative text-gray-200 font-bold text-lg h-30px ">
           <img
             src={logo}
             alt=""
             className=" w-16 flex items-center justify-center  motion-safe:hover:-translate-y-0.5 motion-safe:transition  "
           />
-         
+
           <button
             onClick={onClose}
             className=" text-gray-400 cursor-pointer text-3xl font-bold absolute top-0 right-0"
           >
             <X />
           </button>
-        </div >
-       
+        </div>
 
-        <div className="mt-2 ml-6 " >
-        <p className="text-[26px] text-black    font-bold  ">
+        <div className="mt-2 ml-6 ">
+          <p className="text-[26px] text-black    font-bold  ">
             Sign in to Your Member's Account
-          </p> 
+          </p>
         </div>
 
         <div className="bg-white  rounded-lg p-5   h-auto">
@@ -104,7 +141,9 @@ export const SigninModal = ({ open, onClose }) => {
                 value={password}
                 onChange={handlePasswordChange}
               />
-              {passwordError && <p className="mt-2 text-red-500">{passwordError}</p>}
+              {passwordError && (
+                <p className="mt-2 text-red-500">{passwordError}</p>
+              )}
             </div>
 
             <button
@@ -130,5 +169,7 @@ export const SigninModal = ({ open, onClose }) => {
         </div>
       </div>
     </div>
+
+    </>
   );
 };
