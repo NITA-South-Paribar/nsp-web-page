@@ -14,7 +14,10 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 py-3 backdrop-blur-lg bg-slate-800 mx-60 my-5 rounded-lg text-white w-3/4 px-6">
+
+
+  
+    <nav className="sticky top-0 z-50 py-3  bg-slate-800 mx-60 my-5 rounded-lg text-white w-3/4 px-6">
       <div className="container mx-auto relative text-md font-semibold">
         <div className="flex justify-between items-center">
           <Link
@@ -46,6 +49,7 @@ export const Navbar = () => {
               </button>
               <SigninModal
                 open={openModal}
+                onOpen= {() => setOpenModal(true)}
                 onClose={() => setOpenModal(false)}
               />
             </div>
@@ -92,12 +96,6 @@ export const Navbar = () => {
         {/* Responsive Navbar Ends here */}
       </div>
     </nav>
+  
   );
 };
-
-{
-  /* <a href="#_" class="rounded relative inline-flex group items-center justify-center px-3.5 py-2 m-1 cursor-pointer  bg-gradient-to-tr from-purple-600 to-purple-500 border-purple-700 text-white">
-<span class="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
-<span class="relative">Button Text</span>
-</a> */
-}
