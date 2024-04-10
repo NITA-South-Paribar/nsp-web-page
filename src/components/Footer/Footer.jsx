@@ -79,7 +79,7 @@ export const Footer = () => {
             </h4>
             <a className="text-gray-700 no-underline" href="">
               <p className="leading-4 my-2 cursor-pointer text-slate-400 hover:border-yellow-400 hover:text-yellow-400">
-                +91 - 0000 000 000
+                +91 - 7005 846 717
               </p>
             </a>
             <a className="text-gray-700 no-underline" href="">
