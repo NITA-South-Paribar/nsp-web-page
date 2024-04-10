@@ -1,36 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Membercard from "../MemberCard/MamberCard";
-import { members } from "../../../constants/index";
-import me from "../../../assets/User.jpeg"
-import { filters } from "../../../constants/index"
-import Filter from "../Filter/Filter"
+import { members } from "../../../constants/member";
+import me from "../../../assets/User.jpeg";
+import { filters } from "../../../constants/member";
+import Filter from "../Filter/Filter";
 
 export const MemberDashboard = () => {
-  const [filtermembers, setfiltermembers] = useState(members)
+  const [filtermembers, setfiltermembers] = useState(members);
   const [activeFilters, setActiveFilters] = useState([
-    { type: "companies", options: [] }
+    { type: "year", options: [] },
   ]);
 
   const onUpdateFilter = () => {
-    let updatedFilterProducts = members
-      .filter((fp) => {
-        let options = activeFilters.find((af) => af.type === "companies").options;
-        return options.includes(fp.companies.toLowerCase());
-      });
+    let updatedFilterProducts = members.filter((fp) => {
+      let options = activeFilters.find((af) => af.type === "year").options;
+      return options.includes(fp.year.toLowerCase());
+    });
     setfiltermembers(updatedFilterProducts);
   };
   const reset = () => {
     setfiltermembers(members);
-    setActiveFilters([
-      { type: "companies", options: [] }
-    ]);
+    setActiveFilters([{ type: "year", options: [] }]);
   };
 
   return (
-    <div className="flex mt-5">
-      <div className="bg-slate-400 pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4 ml-5 rounded-2xl">
-        <aside>
-          <h4 className="sr-only text-center">Filters</h4>
+    <div className="flex justify-between mt-5">
+      {/* Filter section STARTS here */}
+      <div className="bg-slate-400 mt-[30px] ml-4 rounded-xl h-[620px]">
+        <aside className="p-8">
+          <h4 className="text-center">Filters</h4>
 
           <div className="hidden lg:block">
             <div
@@ -49,7 +47,6 @@ export const MemberDashboard = () => {
                   setActiveFilters={setActiveFilters}
                   activeFilterOptions={
                     activeFilters.find((af) => af.type === section.id)
-                      .options
                   }
                   onUpdateFilter={onUpdateFilter}
                 />
@@ -58,9 +55,14 @@ export const MemberDashboard = () => {
           </div>
         </aside>
       </div>
+      {/* Filter section ENDS here */}
 
-      <div className="flex-1 flex-shrink-0 h-screen" >
-        <div className="p-4 h-7px w-17px flex flex-wrap" style={{ overflowY: 'auto' }}>
+      {/* Members Card section STARTS here */}
+      <div className="flex-1 flex-shrink-0 h-screen">
+        <div
+          className="p-4 h-7px w-17px flex flex-wrap"
+          style={{ overflowY: "auto" }}
+        >
           {filtermembers.length === 0 && (
             <div className="text-center w-full text-4xl font-normal tracking-tight text-gray-900">
               Sorry no members available
@@ -85,10 +87,9 @@ export const MemberDashboard = () => {
             ))}
         </div>
       </div>
-
+      {/* Members Card section ENDS here */}
     </div>
   );
 };
 
 export default MemberDashboard;
-

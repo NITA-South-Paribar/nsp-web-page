@@ -7,17 +7,13 @@ import { useState } from "react";
 import { SigninModal } from "../SigninModal/SigninModal";
 export const Navbar = () => {
   const [openModal, setOpenModal] = useState(false);
-  const [showModal, setShowModal] = useState(false);
   const [mobileDraweOpen, setMobileDraweOpen] = useState(false);
   const toggleNavbar = () => {
     setMobileDraweOpen(!mobileDraweOpen);
   };
 
   return (
-
-
-  
-    <nav className="sticky top-0 z-50 py-3  bg-slate-800 mx-60 my-5 rounded-lg text-white w-3/4 px-6">
+    <nav className="sticky top-0 z-50 py-3 bg-slate-800 mx-auto my-5 rounded-lg text-white w-3/4 px-4">
       <div className="container mx-auto relative text-md font-semibold">
         <div className="flex justify-between items-center">
           <Link
@@ -49,7 +45,7 @@ export const Navbar = () => {
               </button>
               <SigninModal
                 open={openModal}
-                onOpen= {() => setOpenModal(true)}
+                onOpen={() => setOpenModal(true)}
                 onClose={() => setOpenModal(false)}
               />
             </div>
@@ -96,6 +92,5 @@ export const Navbar = () => {
         {/* Responsive Navbar Ends here */}
       </div>
     </nav>
-  
   );
 };
