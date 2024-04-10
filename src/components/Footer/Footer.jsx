@@ -2,13 +2,13 @@ import { TbBrandGithubFilled } from "react-icons/tb";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 export const Footer = () => {
-  let iconStyles = { color: "white", fontSize: "3em" };
+  let iconStyles = { color: "white", fontSize: "2.5em" };
   return (
     <div className="bg-slate-800 mt-[360px]">
-      <div className="border-b border-solid border-white border-opacity-20 py-8 px-4 text-center">
+      <div className="border-b border-solid border-white border-opacity-20 py-6 text-center">
         <div className="p-0">
           <div className="inline">
-            <h3 className="text-white inline text-4xl leading-10 mb-6 mr-5">
+            <h3 className="text-white inline text-3xl leading-10 mb-3 mr-5">
               Have a Question? We're here to help{" "}
             </h3>
             <a
@@ -21,9 +21,9 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="flex flex-col py-8 px-16">
+      <div className="flex flex-col py-6 px-12">
         <div className="flex justify-between items-start flex-row flex-wrap w-full text-left mb-8 text-white">
-          <div className="flex flex-row justify-between gap-5">
+          <div className="flex flex-row justify-between gap-5 mt-6">
             <div className="motion-safe:hover:-translate-y-0.5 motion-safe:transition">
               <a href="#">
                 <FaInstagram style={iconStyles} />
@@ -55,41 +55,41 @@ export const Footer = () => {
             </div>
           </div>
           <div className="w-36 m-4 flex justify-start flex-col text-md">
-            <h4 className="text-xl leading-17 mb-3"> Sectors</h4>
+            <h4 className="text-xl leading-17 mb-3">Quick Links</h4>
             <a className="text-gray-700 no-underline" href="">
               <p className="leading-4 my-2 cursor-pointer text-slate-400 hover:border-yellow-400 hover:text-yellow-400">
-                Private Equity
+                About
               </p>
             </a>
             <a className="text-gray-700 no-underline" href="">
               <p className="leading-4 my-2 cursor-pointer text-slate-400  hover:border-yellow-400 hover:text-yellow-400">
                 {" "}
-                Real Assets
+                Contests
               </p>
             </a>
             <a className="text-gray-700 no-underline" href="">
               <p className="leading-4 my-2 cursor-pointer text-slate-400  hover:border-yellow-400 hover:text-yellow-400">
-                Private Debt
+                Contact
               </p>
             </a>
           </div>
           <div className="w-36 m-4 flex justify-start flex-col text-md">
             <h4 className="text-xl leading-17 mb-3 hover:border-yellow-400 ">
-              About us
+              Support
             </h4>
             <a className="text-gray-700 no-underline" href="">
               <p className="leading-4 my-2 cursor-pointer text-slate-400 hover:border-yellow-400 hover:text-yellow-400">
-                Who We Are
+                +91 - 0000 000 000
               </p>
             </a>
             <a className="text-gray-700 no-underline" href="">
               <p className="leading-4 my-2 cursor-pointer text-slate-400 hover:border-yellow-400 hover:text-yellow-400">
-                Our Leadership
+                nspariwar.g1@gmail.com
               </p>
             </a>
             <a className="text-gray-700 no-underline" href="">
               <p className="leading-4 my-2 cursor-pointer text-slate-400 hover:border-yellow-400 hover:text-yellow-400 ">
-                Careers
+                FAQ
               </p>
             </a>
           </div>
