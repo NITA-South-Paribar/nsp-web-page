@@ -3,6 +3,7 @@ import logo from "../../assets/NSP-Logo.png";
 import { X, Download } from "lucide-react";
 import { useState } from "react";
 import { useEffect } from "react";
+import ReactDOM from "react-dom";
 export const SigninModal = ({ open, onOpen, onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -61,6 +62,8 @@ export const SigninModal = ({ open, onOpen, onClose }) => {
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
+   
+   
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     
@@ -71,19 +74,19 @@ export const SigninModal = ({ open, onOpen, onClose }) => {
   const handleclick = (e) => {
     if (
       e.target.className ===
-      " bg-black bg-opacity-40   backdrop-blur-sm  font-roboto h-screen  overflow-auto pt-16 fixed top-0 left-0 w-full z-100"
+      " bg-black bg-opacity-40   backdrop-blur-sm  font-roboto h-screen  overflow-auto pt-16 fixed top-0 left-0 w-full z-50"
     ) {
-      console.log("hi");
+     
       onClose();
     }
   };
   if (!open) return null;
 
-  return (
+  return ReactDOM.createPortal (
     <>
     <div
       onClick={handleclick}
-      className=" bg-black bg-opacity-40   backdrop-blur-sm  font-roboto h-screen  overflow-auto pt-16 fixed top-0 left-0 w-full z-100"
+      className=" bg-black bg-opacity-40   backdrop-blur-sm  font-roboto h-screen  overflow-auto pt-16 fixed top-0 left-0 w-full z-50"
     >
       <div className="mt-10 bg-white border border-gray-400 rounded-lg  h-auto  mx-auto  px-5 py-4 w-[500px]">
         <div className="flex justify-between  items-center relative text-gray-200 font-bold text-lg h-30px ">
@@ -168,6 +171,7 @@ export const SigninModal = ({ open, onOpen, onClose }) => {
       </div>
     </div>
 
-    </>
+    </>,
+    document.querySelector(" .myPortalModal")
   );
 };
