@@ -1,6 +1,7 @@
 import { TbBrandGithubFilled } from "react-icons/tb";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa6";
 export const Footer = () => {
   let iconStyles = { color: "white", fontSize: "2.5em" };
   return (
@@ -24,8 +25,20 @@ export const Footer = () => {
       <div className="flex flex-col py-6 px-12">
         <div className="flex justify-between items-start flex-row flex-wrap w-full text-left mb-8 text-white">
           <div className="flex flex-row justify-between gap-5 mt-6">
+          <div className="motion-safe:hover:-translate-y-0.5 motion-safe:transition">
+              <a
+                href="https://chat.whatsapp.com/IlR4GvrCtNBLpXeVHWXJpM"
+                target="_blank"
+              >
+                <FaWhatsapp style={iconStyles} />
+              </a>
+            </div>
+
             <div className="motion-safe:hover:-translate-y-0.5 motion-safe:transition">
-              <a href="#">
+              <a 
+              href="https://www.instagram.com/n_s_p_2018_official/"
+              target="_blank"
+              >
                 <FaInstagram style={iconStyles} />
               </a>
             </div>
@@ -39,7 +52,7 @@ export const Footer = () => {
             </div>
             <div className="motion-safe:hover:-translate-y-0.5 motion-safe:transition">
               <a
-                href="https://www.linkedin.com/company/nita-south-pariwar/"
+                href="https://twitter.com/n_s_p_official"
                 target="_blank"
               >
                 <FaXTwitter style={iconStyles} />
@@ -47,7 +60,7 @@ export const Footer = () => {
             </div>
             <div className="motion-safe:hover:-translate-y-0.5 motion-safe:transition">
               <a
-                href="https://github.com/NITA-South-Paribar/nsp-web-page.git"
+                href="https://github.com/NITA-South-Paribar"
                 target="_blank"
               >
                 <TbBrandGithubFilled style={iconStyles} />
