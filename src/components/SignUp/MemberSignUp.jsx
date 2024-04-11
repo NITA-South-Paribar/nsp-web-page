@@ -1,10 +1,10 @@
 import { filters } from "../../constants/member";
+import { useState } from "react";
 
+import { SigninModal } from "../SigninModal/SigninModal";
 export const MemberSignUp = () => {
-
-  const submitDetails = () => {
-    
-  }
+  const [openModal, setOpenModal] = useState(false);
+  const submitDetails = () => {};
 
   return (
     <div className="flex items-center justify-center p-12">
@@ -99,9 +99,19 @@ export const MemberSignUp = () => {
           <p className="text-xl text-black   font-bold  ">
             Already have an account
           </p>
-          <button className="  text-xl font-medium ml-4 text-yellow-600 ">
+
+          <div></div>
+          <button
+            onClick={() => setOpenModal(true)}
+            className="  text-xl font-medium ml-4 text-yellow-600 "
+          >
             Sign In
           </button>
+          <SigninModal
+            open={openModal}
+            onOpen={() => setOpenModal(true)}
+            onClose={() => setOpenModal(false)}
+          />
         </div>
       </div>
     </div>
