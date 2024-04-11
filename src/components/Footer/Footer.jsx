@@ -60,7 +60,7 @@ export const Footer = () => {
             </div>
             <div className="motion-safe:hover:-translate-y-0.5 motion-safe:transition">
               <a
-                href="https://github.com/NITA-South-Paribar/nsp-web-page.git"
+                href="https://github.com/NITA-South-Paribar"
                 target="_blank"
               >
                 <TbBrandGithubFilled style={iconStyles} />
