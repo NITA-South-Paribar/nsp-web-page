@@ -13,7 +13,7 @@ export const navItems = [
     },
     {
         label: "CONTACT",
-        href: "#"
+        href: "/nsp-web-page/contact"
     }
 ]
 
