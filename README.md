@@ -5,7 +5,7 @@ Official Website of NITA South Paribar
 ## Steps to use the project:
 
 1. Clone the repository. Command : git clone https://github.com/NITA-South-Paribar/nsp-web-page.git
-2. Please create your own branch first. command : git checkout -b <branch_name>
+2. Please create your own branch first. By this command : git checkout -b <branch_name>
    branch name should be like firstName_lastName
 3. Then take the pull from "dev_staging" branch. command : git pull origin dev_staging
 4. Go to the project directory in your teminal, run **npm install**
