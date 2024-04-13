@@ -4,7 +4,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase, faGraduationCap, faLink, faLocationDot, faPhone, faSchool } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons/faEnvelope';
-import membersData from '../../../constants/index'; // Import the data array
+import membersData from '../../../constants/member'; // Import the data array
 
 const MemberDetails = () => {
 
