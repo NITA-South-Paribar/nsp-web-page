@@ -113,3 +113,30 @@ export const filters = [
         ],
     }
 ]
+
+
+// membersData.js
+
+const membersData = [
+    {
+        id: 1,
+      name: 'Mayuri Saha',
+      company: 'Dont Know',
+      role: 'Software Developer',
+      email: 'mayuri@example.com',
+      phone: '+91 123456789',
+      country: 'India',
+      image: 'https://t3.ftcdn.net/jpg/03/62/56/24/360_F_362562495_Gau0POzcwR8JCfQuikVUTqzMFTo78vkF.jpg',
+      skills: ['JavaScript', 'React', 'Python','SQL'],
+      links: [
+        { type: 'LinkedIn', url: 'https://www.linkedin.com/mayurisaha' },
+        { type: 'GitHub', url: 'https://github.com/mayurisaha' },
+      ],
+      workExperience: 'Add your work experience. Don’t forget to add those internships as well.',
+      education: 'Add your education.'
+    },
+   
+  ];
+  
+  export default membersData;
+  

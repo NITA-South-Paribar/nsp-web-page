@@ -18,7 +18,8 @@ const routes = createBrowserRouter(
       <Route path="about" element={<About />} />
       <Route path="gallery" element={<ImageGallery />} />
       <Route path="members" element={<MemberDasboard />} />
-      <Route path="members/:memberId" element={<MemberDetails />} />
+      {/* <Route path="members/:memberId" element={<MemberDetails />} /> */}
+      <Route path="members/:email" element={<MemberDetails />} />
       <Route path="signup" element={<MemberSignUp />} />
     </Route>
   )
