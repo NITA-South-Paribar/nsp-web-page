@@ -21,7 +21,7 @@ const MemberCard = ({ name, linkedin, instagram, Github, Twitter, myimage, compa
   return (
     <div className="flex flex-col items-center">
       <div>
-        <img src={myimage} alt="User" style={{ width:300, height:280, borderRadius:15,padding:2}}/>
+        <img src={myimage} alt="User" style={{ width:300, height:280, borderRadius:15,padding:1}}/>
         <div className='text-center'>
           <h1 className="text-white text-2xl font-extrabold">{name}</h1>
           <p className="text-white">{company}</p>
@@ -52,7 +52,6 @@ MemberCard.propTypes = {
   instagram: PropTypes.string.isRequired,
   Github: PropTypes.string.isRequired,
   myimage: PropTypes.string.isRequired,
-  about: PropTypes.string.isRequired,
 };
 
 export default MemberCard;

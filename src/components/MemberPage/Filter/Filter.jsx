@@ -42,9 +42,6 @@ function Filter({
     setActiveFilters(updatedFilters);
   };
 
-
-
-
   return (
     <div key={section.name} className={sectionidx === 0 ? null : "pt-10 rounded"}>
       <fieldset>
@@ -58,7 +55,7 @@ function Filter({
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               >
                 {section.options.map((option, optionIdx) => (
-                      <option>{option.value}</option>
+                      <option key={optionIdx}>{option.value}</option>
 
                 ))}
               

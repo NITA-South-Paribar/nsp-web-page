@@ -1,22 +1,4 @@
 import me from "../assets/User.jpeg"
-export const navItems = [
-    {
-        label: "ABOUT",
-        href: "/nsp-web-page/about"
-    },
-    {
-        label: "GALLERY",
-        href: "/nsp-web-page/gallery"
-    },
-    {
-        label: "MEMBERS",
-        href: "/nsp-web-page/members"
-    },
-    {
-        label: "CONTACT",
-        href: "#"
-    }
-]
 
 export const members = [
     {
@@ -95,8 +77,8 @@ export const members = [
 
 export const filters = [
     {
-        id:"companies",
-        name:"companies",
+        id:"year",
+        name:"year",
         options:[
             {value:"2013",label:"2013"},
             {value:"2014",label:"2014"},
@@ -110,6 +92,34 @@ export const filters = [
             {value:"2022",label:"2022"},
             {value:"2023",label:"2023"},
             {value:"2024",label:"2024"},
+        ],
+    },
+    {
+        id:"branch",
+        name:"branch",
+        options:[
+            {value:"Bio",label:"Bio"},
+            {value:"Chemical",label:"Chemical"},
+            {value:"Civil",label:"Civil"},
+            {value:"Computer Science",label:"Computer Science"},
+            {value:"Electrical",label:"Electrical"},
+            {value:"Electronics",label:"Electronics"},
+            {value:"Instrumentation",label:"Instrumentation"},
+            {value:"Mathematics",label:"Mathematics"},
+            {value:"Mechanical",label:"Mechanical"},
+            {value:"Physics",label:"Physics"},
+            {value:"Production",label:"Production"},
+        ],
+    },
+    {
+        id:"company",
+        name:"company",
+        options:[
+            {value:"ABB",label:"ABB"},
+            {value:"ADP",label:"ADP"},
+            {value:"Infosys",label:"Infosys"},
+            {value:"Tata Motors",label:"Tata Motors"},
+            {value:"Google",label:"Google"},
         ],
     }
 ]
