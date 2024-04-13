@@ -1,6 +1,7 @@
 import { Link } from "react-scroll";
 import logo from "../../../src/assets/Logo.jpg";
 
+
 export const Navbar = () => {
   const content = (
     <>
@@ -11,9 +12,12 @@ export const Navbar = () => {
               About
             </li>
           </Link>
-          <Link>
+          <Link
+         
+          >
+          {/* <ImageGallary/> */}
             <li className="my-4 py-4 border-b border-slate-700 hover:bg-slate-700 hover:rounded">
-              Gallery
+            Gallery
             </li>
           </Link>
           <Link>

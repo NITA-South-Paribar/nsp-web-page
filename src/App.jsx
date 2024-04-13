@@ -1,5 +1,7 @@
 import { Navbar } from "./components/Navbar/Navbar";
 
+
+
 function App() {
   return (
     <>
@@ -8,6 +10,7 @@ function App() {
       </div>
       <div className="text-3xl text-center mx-10 font-sans font-bold">
         <h1>Official Website of NITA South Paribar</h1>
+       
       </div>
     </>
   );
