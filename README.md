@@ -17,7 +17,15 @@ Official Website of NITA South Paribar
    3. git push origin <your_branch_name>
 7. Then create a pull request to merge into "dev_staging" branch.
 
+## Code Owners
+1. Pritam Paul
+2. Rana Sarkar
+
 ## Collaborators
 
+<<<<<<< HEAD
 1.Sudip karmakar. 2. Kritidipta Datta 3. Sreya Nath 4.Rahul Banik
 
+=======
+1. Sudip karmakar. 2. Kritidipta Datta 3. Sreya Nath 4. subhrajit saha 5. Ishita karmakar 6. Mayuri Saha 7. Saikat Biswas
+>>>>>>> c9512e85afd8f2822b947166a7d7ac135a4c86e0
