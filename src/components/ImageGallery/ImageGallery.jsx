@@ -105,12 +105,7 @@ export const ImageGallery = () => {
                 <div className="fixed  inset-10 flex items-center justify-center z-50  ">
                     <div className="absolute inset-0 bg-black bg-opacity-50" onClick={handleCloseModal}></div>
                     <div className="max-w-lg w-full bg-white p-6 rounded-lg shadow-lg relative">
-                        <button
-                            className="absolute top-10 right-10 text-gray-700 hover:text-black backdrop-blue"
-                            onClick={handleCloseModal}
-                        >
-                            <b>Close</b>
-                        </button>
+                        
                         <button
                             className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-700 hover:text-black"
                             onClick={handlePrevImage}
