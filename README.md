@@ -10,7 +10,7 @@ Official Website of NITA South Paribar
 3. Then take the pull from "dev_staging" branch. command : git pull origin dev_staging
 4. Go to the project directory in your teminal, run **npm install**
 5. Run **npm run dev** and navigate to local port 5173 or **http://localhost:5173/nsp-web-page/**
-6. Then make your chengs from your own branch and then push the code into your branch.
+6. Then make your change from your own branch and then push the code into your branch.
    commands:
    1. git add <file_1> <file_2> <file_3> //based on your changes
    2. git commit -m "commit message"
