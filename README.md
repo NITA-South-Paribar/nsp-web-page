@@ -18,7 +18,7 @@ Official Website of NITA South Paribar
 7. Then create a pull request to merge into "dev_staging" branch.
 
 ## Code Owners
-1. Pritam Paul
+1. Pritam Paul <br>
 2. Rana Sarkar
 
 ## Collaborators

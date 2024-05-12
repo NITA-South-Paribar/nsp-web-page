@@ -110,7 +110,7 @@ export const ImageGallery = () => {
                             className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-700 hover:text-black"
                             onClick={handlePrevImage}
                         >
-                            Prev
+                            Pre
                         </button>
                         <button
                             className="absolute top-1/2 transform -translate-y-1/2 right-2 text-gray-700 hover:text-black"
