@@ -29,7 +29,7 @@ export const Navbar = () => {
   }, [prevScrollPos, visible]);
 
   return (
-    <nav className={"fixed top-0 z-50 py-3 bg-slate-800 mx-auto text-white w-full px-4" + (visible ? " " : " hidden")}>
+    <nav className={"fixed top-0 z-50 py-3 bg-slate-800 mx-auto text-white w-full px-4 transition-opacity duration-1000" + (visible ? " opacity-100" : " opacity-0")}>
       <div className="container mx-auto relative text-md font-semibold">
         <div className="flex justify-between items-center">
           <Link to="" className="flex items-center flex-shrink-0 cursor-pointer">
