@@ -58,7 +58,6 @@ export const ImageGallery = () => {
         setSelectedImage(image);
         setZoomedIndex(index);
         setIsModalOpen(true);
-        // Set images for the slider excluding the current zoomed image
         setSliderImages(filteredImages.filter((img, idx) => idx !== index));
     };
 
@@ -93,47 +92,43 @@ export const ImageGallery = () => {
                         <img
                             className="w-full h-auto cursor-pointer"
                             src={image.imageName}
-                           
                             alt=""
                             onClick={() => handleImageClick(image, index)}
                         />
                     </div>
                 ))}
             </div>
-            {/* Modal for displaying enlarged image */}
             {selectedImage && (
-                <div className="fixed  inset-10 flex items-center justify-center z-50  ">
-                    <div className="absolute inset-100 bg-black bg-opacity-50" onClick={handleCloseModal}></div>
-                    <div className="max-w-lg w-full bg-white p-6 rounded-lg shadow-lg relative">
-                        
+                <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75">
+                    <div className="relative w-full h-full flex items-center justify-center">
                         <button
-                            className="absolute top-1/2 transform -translate-y-1/2 left-2 text-gray-700 hover:text-black"
+                            className="absolute top-1/2 transform -translate-y-1/2 left-4 text-white hover:text-gray-300"
                             onClick={handlePrevImage}
                         >
                             Prev
                         </button>
+                        <div className="max-w-full max-h-full flex items-center justify-center">
+                            <img
+                                className="w-auto h-auto max-h-full max-w-full"
+                                src={selectedImage.imageName}
+                                alt=""
+                            />
+                        </div>
                         <button
-                            className="absolute top-1/2 transform -translate-y-1/2 right-2 text-gray-700 hover:text-black"
+                            className="absolute top-1/2 transform -translate-y-1/2 right-4 text-white hover:text-gray-300"
                             onClick={handleNextImage}
                         >
                             Next
                         </button>
-                        <div className="overflow-x-auto">
-                            {/* Image carousel */}
-                            <div className="flex  items-center justify-center">
-                                <div className="p-8"> {/* Adjust padding here */}
-                                    <img
-                                        className="w-full h-auto max-h-96"
-                                        src={selectedImage.imageName}
-                                        alt=""
-                                    />
-                                </div>
-                            </div>
-                        </div>
+                        <button
+                            className="absolute top-4 right-4 text-white hover:text-gray-300"
+                            onClick={handleCloseModal}
+                        >
+                            Close
+                        </button>
                     </div>
                 </div>
             )}
-            {/* Slider for other images */}
             {selectedImage && (
                 <div className="fixed inset-x-0 bottom-0 flex items-center justify-center z-50">
                     <div className="bg-white p-2 rounded-lg shadow-lg">
