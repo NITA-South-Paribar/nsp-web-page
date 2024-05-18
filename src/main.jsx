@@ -5,6 +5,7 @@ import './index.css'
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom'
 import { MemberSignUp } from './components/SignUp/MemberSignUp.jsx'
 import { About } from './components/About/About.jsx'
+import { Contact } from './components/Contact/Contact.jsx'
 import { ImageGallery } from './components/ImageGallery/ImageGallery.jsx'
 import MemberDasboard from './components/MemberPage/MemberDasboard/MemberDasboard.jsx'
 import MemberDetails from './components/MemberPage/MemberDetails/MemberDetails.jsx'
@@ -16,6 +17,7 @@ const routes = createBrowserRouter(
     <Route path="/nsp-web-page" element={<App/>}>
       <Route path="" element={<Home />} />
       <Route path="about" element={<About />} />
+      <Route path="contact" element={<Contact />} />
       <Route path="gallery" element={<ImageGallery />} />
       <Route path="members" element={<MemberDasboard />} />
       <Route path="members/:memberId" element={<MemberDetails />} />
