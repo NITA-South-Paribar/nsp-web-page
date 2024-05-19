@@ -23,8 +23,4 @@ Official Website of NITA South Paribar
 
 ## Collaborators
 
-<<<<<<< HEAD
-1. Sudip karmakar. 2. Kritidipta Datta 3. Sreya Nath 4. subhrajit saha 5. Ishita karmakar 6. Mayuri Saha 7. Saikat Biswas 8.Rahul Banik
-=======
-1. Sudip karmakar <br>2. Kritidipta Datta <br>3. Sreya Nath <br>4. subhrajit saha <br>5. Ishita karmakar <br>6. Mayuri Saha <br>7. Parship Chowdhury
->>>>>>> b227717006013016466340eb0b8dd8d9ff01b568
+1. Sudip karmakar <br>2. Kritidipta Datta <br>3. Sreya Nath <br>4. subhrajit saha <br>5. Ishita karmakar <br>6. Mayuri Saha <br>7. Parship Chowdhury <br>8.Rahul Banik
