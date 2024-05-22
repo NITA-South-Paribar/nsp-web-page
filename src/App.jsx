@@ -10,8 +10,8 @@ function App() {
       <Headroom>
         <Navbar />
       </Headroom>
-
-      <Outlet />
+      
+        <Outlet />
       <Footer />
     </>
   );
