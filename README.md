@@ -23,4 +23,4 @@ Official Website of NSP
 
 ## Collaborators
 
-1. Sudip karmakar. 2. Kritidipta Datta 3. Sreya Nath 4. subhrajit saha 5. Ishita karmakar 6. Mayuri Saha 7. Saikat Biswas
+1. Sudip karmakar <br>2. Kritidipta Datta <br>3. Sreya Nath <br>4. subhrajit saha <br>5. Ishita karmakar <br>6. Parship Chowdhury
