@@ -118,7 +118,7 @@ export const ImageGallery = () => {
                             className="absolute top-1/2 transform -translate-y-1/2 right-4 text-white hover:text-gray-300"
                             onClick={handleNextImage}
                         >
-                            Next
+                            -Next-
                         </button>
                         <button
                             className="absolute top-4 right-4 text-white hover:text-gray-300"
