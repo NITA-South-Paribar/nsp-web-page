@@ -1,28 +1,37 @@
 import { filters } from "../../constants/member";
 import { useState } from "react";
 import { SigninModal } from "../SigninModal/SigninModal";
+import { useForm } from "react-hook-form";
 
 export const MemberSignUp = () => {
   const [openModal, setOpenModal] = useState(false);
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [rollNo, setRollNo] = useState("");
-  const [registrationNo, setRegistrationNo] = useState("");
-  const [gender, setGender] = useState("");
-  const [aadhaarFile, setAadhaarFile] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmPwd, setConfirmPwd] = useState("")
+  /** This hook return an object that contains several useful properties and methods that can be used with forms */
+  /** React hook form doesn't re-render on every key strocks on form control that improves performance a lot */
+  const form = useForm();
 
-  const submitDetails = () => {};
+  const { register, handleSubmit, formState, watch, reset } = form;
+  let pwd = watch("password");
+
+  const { errors } = formState;
+
+  const submitDetails = (data) => {
+    console.log("Submitted", data);
+    console.log("Name", data.username);
+    console.log("Email", data.email);
+    console.log("Password", data.password);
+    console.log("Confirm Password", data.confirmPassword);
+    alert(JSON.stringify(data));
+    reset()
+  };
 
   return (
     <div className="flex items-center justify-center p-12">
-      <div className="bg-white w-[640px] rounded-lg p-5 justify-center h-auto">
+      <div className="bg-white w-[640px] rounded-lg p-5 justify-center h-auto mt-10">
         <p className="text-[26px] text-black font-bold text-center">
           Create your member account
         </p>
-        <form onSubmit={submitDetails}>
+        <form onSubmit={handleSubmit(submitDetails)}>
           <div>
             <label
               htmlFor="name"
@@ -33,10 +42,13 @@ export const MemberSignUp = () => {
             <input
               className="mt-1 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
               placeholder="FirstName LastName"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              type="text"
+              id="username"
+              {...register("username", {
+                required: "You must enter your name",
+              })}
             />
-            {/* {nameError && <p className=" mt-2 text-red-500">{nameError}</p>} */}
+            <p className="mt-2 text-red-500">{errors.username?.message}</p>
           </div>
 
           <div>
@@ -44,22 +56,37 @@ export const MemberSignUp = () => {
               htmlFor="email"
               className="mt-4 block text-lg font-extrabold text-black"
             >
-              G-email
+              G-mail
             </label>
             <input
               className="mt-1 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white"
               placeholder="example@gmail.com"
-              type="enter your email id"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              id="email"
+              {...register("email", {
+                pattern: {
+                  value:
+                    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                  message: "Invalid email format",
+                },
+                validate: {
+                  notValidEmail: (fieldValue) => {
+                    if (fieldValue) {
+                      return (
+                        fieldValue.endsWith("gmail.com") ||
+                        "This email domain is not supported, Enter your gmail id"
+                      );
+                    }
+                    return "You must have to put your gmail";
+                  },
+                },
+              })}
             />
-            {/* {passwordError && (
-              <p className="mt-2 text-red-500">{passwordError}</p>
-            )} */}
+            <p className="mt-2 text-red-500">{errors.email?.message}</p>
           </div>
 
           <div className="flex justify-between items-center">
-            {/* Engineering Branch */}
+            {/* Admission Year */}
             <div>
               <label
                 htmlFor="passout_year"
@@ -71,14 +98,18 @@ export const MemberSignUp = () => {
                 name="year"
                 id="year"
                 className="w-[240px] p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                {...register("year", {
+                  required: "Admission Year is required",
+                })}
               >
                 {filters[0].options.map((year, yearIdx) => (
                   <option key={yearIdx}>{year.value}</option>
                 ))}
               </select>
+              <p className="mt-2 text-red-500">{errors.year?.message}</p>
             </div>
 
-            {/* Admission Year */}
+            {/* Engineering Branch */}
             <div>
               <label
                 htmlFor="department"
@@ -90,11 +121,15 @@ export const MemberSignUp = () => {
                 name="department"
                 id="department"
                 className="w-[240px] p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                {...register("department", {
+                  required: "Department is required",
+                })}
               >
                 {filters[1].options.map((department, departmentIdx) => (
                   <option key={departmentIdx}>{department.value}</option>
                 ))}
               </select>
+              <p className="mt-2 text-red-500">{errors.department?.message}</p>
             </div>
           </div>
 
@@ -105,15 +140,15 @@ export const MemberSignUp = () => {
                 htmlFor="rollNo"
                 className="block mt-6 text-black text-lg  font-extrabold"
               >
-                NIT Roll No
+                NIT-A Enrollment No
               </label>
               <input
                 className="w-[240px] mt-1 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-                value={rollNo}
                 type="text"
-                onChange={(e) => setRollNo(e.target.value)}
+                id="rollNo"
+                {...register("rollNo", { required: "Roll No is required" })}
               />
-              {/* {rollnoError && <p className=" mt-2 text-red-500">{rollnoError}</p>} */}
+              <p className=" mt-2 text-red-500">{errors.rollNo?.message}</p>
             </div>
 
             {/* NIT Registration Input Field */}
@@ -122,20 +157,23 @@ export const MemberSignUp = () => {
                 htmlFor="registrationNo"
                 className="block mt-6 text-black text-lg  font-extrabold"
               >
-                NIT Registration No
+                NIT-A Registration No
               </label>
               <input
                 className="w-[240px] mt-1 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-                value={registrationNo}
+                id="registrationNo"
                 type="text"
-                onChange={(e) => setRegistrationNo(e.target.value)}
+                {...register("registrationNo", {
+                  required: "Registration No is required",
+                })}
               />
-              {/* {registrationError && <p className=" mt-2 text-red-500">{registrationError}</p>} */}
+              <p className=" mt-2 text-red-500">
+                {errors.registrationNo?.message}
+              </p>
             </div>
           </div>
 
           <div className="flex justify-between items-center">
-
             {/* Gender */}
             <div>
               <label
@@ -149,9 +187,9 @@ export const MemberSignUp = () => {
                   <input
                     id="male"
                     type="radio"
-                    value={gender}
-                    name="male-radio"
+                    value="male"
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-30 dark:bg-gray-700 dark:border-gray-600"
+                    {...register("gender", {required: "Gender is required"})}
                   />
                   <label
                     for="male-gender"
@@ -164,9 +202,9 @@ export const MemberSignUp = () => {
                   <input
                     id="female"
                     type="radio"
-                    value={gender}
-                    name="female-radio"
+                    value="female"
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-30 dark:bg-gray-700 dark:border-gray-600"
+                    {...register("gender", {required: "Gender is required"})}
                   />
                   <label
                     for="female-gender"
@@ -179,9 +217,9 @@ export const MemberSignUp = () => {
                   <input
                     id="other"
                     type="radio"
-                    value={gender}
-                    name="other-radio"
+                    value="other"
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-30 dark:bg-gray-700 dark:border-gray-600"
+                    {...register("gender", {required: "Gender is required"})}
                   />
                   <label
                     for="other-gender"
@@ -191,26 +229,27 @@ export const MemberSignUp = () => {
                   </label>
                 </div>
               </div>
+              <p className="mt-2 text-red-500">{errors.gender?.message}</p>
             </div>
 
             {/* Aadhaar */}
             <div>
-              <div>
-                <label
-                  htmlFor="aadhaarFile"
-                  className="block mt-6 text-black text-lg  font-extrabold"
-                >
-                  Aadhaar
-                </label>
-                <input
-                  className="w-[240px] mt-1 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-                  placeholder="Aadhaar No"
-                  type="file"
-                  value={aadhaarFile}
-                  onChange={(e) => setAadhaarFile(e.target.value)}
-                />
-                {/* {aadhaarFileError && <p className=" mt-2 text-red-500">{registrationError}</p>} */}
-              </div>
+              <label
+                htmlFor="aadhaarFile"
+                className="block mt-6 text-black text-lg  font-extrabold"
+              >
+                Aadhaar
+              </label>
+              <input
+                className="w-[240px] mt-1 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                placeholder="Aadhaar No"
+                type="file"
+                id="aadhaar"
+                {...register("aadhaar", {
+                  required: "Aadhaar is required"
+                })}
+              />
+              <p className="mt-2 text-red-500">{errors.aadhaar?.message}</p>
             </div>
           </div>
 
@@ -219,43 +258,50 @@ export const MemberSignUp = () => {
             {/* Password Section */}
             <div>
               <label
-                htmlFor="rollNo"
+                htmlFor="password"
                 className="block mt-6 text-black text-lg  font-extrabold"
               >
                 Password
               </label>
               <input
                 className="w-[240px] mt-1 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-                value={password}
                 type="password"
-                onChange={(e) => setPassword(e.target.value)}
+                id="password"
+                {...register("password", {
+                  required: "You must specify a password",
+                  minLength: {
+                    value: 6,
+                    message: "Password must have at least 8 characters",
+                  },
+                })}
               />
-              {/* {rollnoError && <p className=" mt-2 text-red-500">{rollnoError}</p>} */}
+              <p className=" mt-2 text-red-500">{errors.password?.message}</p>
             </div>
 
             {/* Confirm Password Section */}
             <div>
               <label
-                htmlFor="registrationNo"
+                htmlFor="confirmPassword"
                 className="block mt-6 text-black text-lg  font-extrabold"
               >
                 Confirm Password
               </label>
               <input
                 className="w-[240px] mt-1 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-                value={confirmPwd}
                 type="password"
-                onChange={(e) => setConfirmPwd(e.target.value)}
+                id="confirmPassword"
+                {...register("confirmPassword", {
+                  validate: (value) =>
+                    value === pwd || "The passwords do not match",
+                })}
               />
-              {/* {registrationError && <p className=" mt-2 text-red-500">{registrationError}</p>} */}
+              <p className=" mt-2 text-red-500">
+                {errors.confirmPassword?.message}
+              </p>
             </div>
           </div>
 
-          <button
-            type="submit"
-            disabled="false"
-            className="w-[480px] ml-16 mt-8 text-white text-xl font-bold bg-gradient-to-r from-green-500 to-green-900 py-2 px-4 rounded-md cursor-pointer hover:bg-gradient-to-t hover:from-green-400 hover:to-green-900"
-          >
+          <button className="w-[480px] ml-16 mt-8 text-white text-xl font-bold bg-gradient-to-r from-green-500 to-green-900 py-2 px-4 rounded-md cursor-pointer hover:bg-gradient-to-t hover:from-green-400 hover:to-green-900">
             Create an account
           </button>
         </form>

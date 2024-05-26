@@ -10,8 +10,9 @@ function App() {
       <Headroom>
         <Navbar />
       </Headroom>
-      
+      <main>
         <Outlet />
+      </main>
       <Footer />
     </>
   );
