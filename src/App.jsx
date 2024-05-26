@@ -12,8 +12,9 @@ function App() {
       <Headroom>
         <Navbar />
       </Headroom>
-
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </>
   );

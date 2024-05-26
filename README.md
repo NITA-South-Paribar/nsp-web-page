@@ -1,6 +1,6 @@
 # nsp-web-page
 
-Official Website of NITA South Paribar
+Official Website of NSP
 
 ## Steps to use the project:
 
