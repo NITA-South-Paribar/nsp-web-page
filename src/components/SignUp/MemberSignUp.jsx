@@ -16,18 +16,14 @@ export const MemberSignUp = () => {
   const { errors } = formState;
 
   const submitDetails = (data) => {
-    console.log("Submitted", data);
-    console.log("Name", data.username);
-    console.log("Email", data.email);
-    console.log("Password", data.password);
-    console.log("Confirm Password", data.confirmPassword);
+    console.log("Submitted Data: ", data);
     alert(JSON.stringify(data));
-    reset()
+    reset();
   };
 
   return (
-    <div className="flex items-center justify-center p-12">
-      <div className="bg-white w-[640px] rounded-lg p-5 justify-center h-auto mt-10">
+    <div className="flex items-center justify-center mt-6">
+      <div className="bg-white w-[640px] rounded-lg p-5 justify-center h-auto">
         <p className="text-[26px] text-black font-bold text-center">
           Create your member account
         </p>
@@ -37,7 +33,7 @@ export const MemberSignUp = () => {
               htmlFor="name"
               className="block mt-6 text-black text-lg  font-extrabold"
             >
-              Full Name
+              Full Name<span className="text-red-600">*</span>
             </label>
             <input
               className="mt-1 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
@@ -56,7 +52,7 @@ export const MemberSignUp = () => {
               htmlFor="email"
               className="mt-4 block text-lg font-extrabold text-black"
             >
-              G-mail
+              G-mail<span className="text-red-600">*</span>
             </label>
             <input
               className="mt-1 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white"
@@ -92,7 +88,7 @@ export const MemberSignUp = () => {
                 htmlFor="passout_year"
                 className="block mt-6 text-black text-lg  font-extrabold"
               >
-                Admission Year
+                Admission Year<span className="text-red-600">*</span>
               </label>
               <select
                 name="year"
@@ -102,6 +98,9 @@ export const MemberSignUp = () => {
                   required: "Admission Year is required",
                 })}
               >
+                <option key="select-year" value="">
+                  Select Year
+                </option>
                 {filters[0].options.map((year, yearIdx) => (
                   <option key={yearIdx}>{year.value}</option>
                 ))}
@@ -115,7 +114,7 @@ export const MemberSignUp = () => {
                 htmlFor="department"
                 className="block mt-6 text-black text-lg  font-extrabold"
               >
-                Department
+                Department<span className="text-red-600">*</span>
               </label>
               <select
                 name="department"
@@ -125,6 +124,9 @@ export const MemberSignUp = () => {
                   required: "Department is required",
                 })}
               >
+                <option key="select-dept" value="">
+                  Select Department
+                </option>
                 {filters[1].options.map((department, departmentIdx) => (
                   <option key={departmentIdx}>{department.value}</option>
                 ))}
@@ -140,7 +142,7 @@ export const MemberSignUp = () => {
                 htmlFor="rollNo"
                 className="block mt-6 text-black text-lg  font-extrabold"
               >
-                NIT-A Enrollment No
+                NIT-A Enrollment No<span className="text-red-600">*</span>
               </label>
               <input
                 className="w-[240px] mt-1 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
@@ -163,9 +165,7 @@ export const MemberSignUp = () => {
                 className="w-[240px] mt-1 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
                 id="registrationNo"
                 type="text"
-                {...register("registrationNo", {
-                  required: "Registration No is required",
-                })}
+                {...register("registrationNo")}
               />
               <p className=" mt-2 text-red-500">
                 {errors.registrationNo?.message}
@@ -180,7 +180,7 @@ export const MemberSignUp = () => {
                 htmlFor="gender"
                 className="block mt-6 text-black text-lg  font-extrabold"
               >
-                Gender
+                Gender<span className="text-red-600">*</span>
               </label>
               <div className="flex justify-between gap-3 w-[240px] mt-1 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 ">
                 <div>
@@ -189,7 +189,7 @@ export const MemberSignUp = () => {
                     type="radio"
                     value="male"
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-30 dark:bg-gray-700 dark:border-gray-600"
-                    {...register("gender", {required: "Gender is required"})}
+                    {...register("gender", { required: "Gender is required" })}
                   />
                   <label
                     for="male-gender"
@@ -204,7 +204,7 @@ export const MemberSignUp = () => {
                     type="radio"
                     value="female"
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-30 dark:bg-gray-700 dark:border-gray-600"
-                    {...register("gender", {required: "Gender is required"})}
+                    {...register("gender", { required: "Gender is required" })}
                   />
                   <label
                     for="female-gender"
@@ -219,7 +219,7 @@ export const MemberSignUp = () => {
                     type="radio"
                     value="other"
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-30 dark:bg-gray-700 dark:border-gray-600"
-                    {...register("gender", {required: "Gender is required"})}
+                    {...register("gender", { required: "Gender is required" })}
                   />
                   <label
                     for="other-gender"
@@ -238,7 +238,7 @@ export const MemberSignUp = () => {
                 htmlFor="aadhaarFile"
                 className="block mt-6 text-black text-lg  font-extrabold"
               >
-                Aadhaar
+                Aadhaar<span className="text-red-600">*</span>
               </label>
               <input
                 className="w-[240px] mt-1 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
@@ -246,7 +246,7 @@ export const MemberSignUp = () => {
                 type="file"
                 id="aadhaar"
                 {...register("aadhaar", {
-                  required: "Aadhaar is required"
+                  required: "Aadhaar is required",
                 })}
               />
               <p className="mt-2 text-red-500">{errors.aadhaar?.message}</p>
@@ -261,7 +261,7 @@ export const MemberSignUp = () => {
                 htmlFor="password"
                 className="block mt-6 text-black text-lg  font-extrabold"
               >
-                Password
+                Password<span className="text-red-600">*</span>
               </label>
               <input
                 className="w-[240px] mt-1 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
@@ -284,7 +284,7 @@ export const MemberSignUp = () => {
                 htmlFor="confirmPassword"
                 className="block mt-6 text-black text-lg  font-extrabold"
               >
-                Confirm Password
+                Confirm Password<span className="text-red-600">*</span>
               </label>
               <input
                 className="w-[240px] mt-1 bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
