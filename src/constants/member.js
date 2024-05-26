@@ -80,11 +80,6 @@ export const filters = [
         id:"year",
         name:"year",
         options:[
-            {value:"2008",label:"2008"},
-            {value:"2009",label:"2009"},
-            {value:"2010",label:"2010"},
-            {value:"2011",label:"2011"},
-            {value:"2012",label:"2012"},
             {value:"2013",label:"2013"},
             {value:"2014",label:"2014"},
             {value:"2015",label:"2015"},
@@ -97,7 +92,13 @@ export const filters = [
             {value:"2022",label:"2022"},
             {value:"2023",label:"2023"},
             {value:"2024",label:"2024"},
-        ],
+            {value:"2025",label:"2025"},
+            {value:"2026",label:"2026"},
+            {value:"2027",label:"2027"},
+            {value:"2028",label:"2028"},
+            {value:"2029",label:"2029"},
+            {value:"2030",label:"2030"}
+        ]
     },
     {
         id:"branch",
