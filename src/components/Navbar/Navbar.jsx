@@ -47,7 +47,7 @@ export const Navbar = () => {
           </ul>
           <div className="hidden lg:flex justify-center space-x-6 items-center">
             <div>
-              <button onClick={() => setOpenModal(true)} className="text-yellow-500 hover:text-white rounded-lg py-2 px-4 text-center hover:bg-gray-700">
+              <button onClick={() => setOpenModal(true)} className="text-yellow-500 text-[18px] hover:text-white rounded-lg py-2 px-4 text-center hover:bg-gray-700">
                 Sign in
               </button>
               <SigninModal
@@ -57,7 +57,7 @@ export const Navbar = () => {
               />
             </div>
             <Link to="signup">
-              <button className="bg-gradient-to-r from-green-500 to-green-900 py-2 px-4 rounded-md cursor-pointer hover:bg-gradient-to-t hover:from-green-400 hover:to-green-900">
+              <button className="bg-gradient-to-r from-green-500 to-green-900 py-1 px-4 rounded-md cursor-pointer hover:bg-gradient-to-t hover:from-green-400 hover:to-green-900">
                 Member Sign Up
               </button>
             </Link>
