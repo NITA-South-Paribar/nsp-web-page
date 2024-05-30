@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function Filter({
   section,
@@ -43,29 +43,22 @@ function Filter({
   };
 
   return (
-    <div key={section.name} className={sectionidx === 0 ? null : "pt-10 rounded"}>
+    <div
+      key={section.name}
+      className={sectionidx === 0 ? null : "pt-10 rounded"}
+    >
       <fieldset>
-        <legend className="block text-lg  text-gray-900 text-center ml-5">
-          {/* Centered section name */}
-          {section.name}
-        </legend>
-        <div className="space-y-6 pt-4 ml-5">
+        <div className="space-y-3">
           {/* {section.options.map((option, optionIdx) => ( */}
-              <select
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              >
-                {section.options.map((option, optionIdx) => (
-                      <option key={optionIdx}>{option.value}</option>
-
-                ))}
-              
-              </select>
-
-
+          <select className="block w-full px-4 py-3 text-gray-600 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 md:text-md">
+            <option value={section.name}>{section.name}</option>
+            {section.options.map((option, optionIdx) => (
+              <option key={optionIdx}>{option.value}</option>
+            ))}
+          </select>
         </div>
       </fieldset>
     </div>
-
   );
 }
 
