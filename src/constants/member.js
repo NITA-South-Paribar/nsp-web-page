@@ -78,7 +78,7 @@ export const members = [
 export const filters = [
     {
         id:"year",
-        name:"year",
+        name:"Year",
         options:[
             {value:"2013",label:"2013"},
             {value:"2014",label:"2014"},
@@ -102,7 +102,7 @@ export const filters = [
     },
     {
         id:"branch",
-        name:"branch",
+        name:"Department",
         options:[
             {value:"Bio",label:"Bio"},
             {value:"Chemical",label:"Chemical"},
@@ -119,7 +119,7 @@ export const filters = [
     },
     {
         id:"company",
-        name:"company",
+        name:"Company",
         options:[
             {value:"ABB",label:"ABB"},
             {value:"ADP",label:"ADP"},
