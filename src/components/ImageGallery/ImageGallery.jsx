@@ -16,37 +16,37 @@ import Image14 from '../../images/img14.jpeg';
 import Image15 from '../../images/img15.jpeg';
 import Image16 from '../../images/img16.jpeg';
 
-export const ImageGallery = () => {
-    const images = [
-        { id: '1', imageName: Image1, tag: 'free' },
-        { id: '2', imageName: Image2, tag: 'new' },
-        { id: '3', imageName: Image3, tag: 'pro' },
-        { id: '4', imageName: Image4, tag: 'pro' },
-        { id: '5', imageName: Image5, tag: 'free' },
-        { id: '6', imageName: Image6, tag: 'new' },
-        { id: '7', imageName: Image7, tag: 'pro' },
-        { id: '8', imageName: Image8, tag: 'free' },
-        { id: '9', imageName: Image9, tag: 'new' },
-        { id: '10', imageName: Image10, tag: 'new' },
-        { id: '11', imageName: Image11, tag: 'new' },
-        { id: '12', imageName: Image12, tag: 'new' },
-        { id: '13', imageName: Image13, tag: 'free' },
-        { id: '14', imageName: Image14, tag: 'pro' },
-        { id: '15', imageName: Image15, tag: 'free' },
-        { id: '16', imageName: Image16, tag: 'new' }
-    ];
+const imagesData = [
+    { id: '1', imageName: Image1, tag: 'free' },
+    { id: '2', imageName: Image2, tag: 'new' },
+    { id: '3', imageName: Image3, tag: 'pro' },
+    { id: '4', imageName: Image4, tag: 'pro' },
+    { id: '5', imageName: Image5, tag: 'free' },
+    { id: '6', imageName: Image6, tag: 'new' },
+    { id: '7', imageName: Image7, tag: 'pro' },
+    { id: '8', imageName: Image8, tag: 'free' },
+    { id: '9', imageName: Image9, tag: 'new' },
+    { id: '10', imageName: Image10, tag: 'new' },
+    { id: '11', imageName: Image11, tag: 'new' },
+    { id: '12', imageName: Image12, tag: 'new' },
+    { id: '13', imageName: Image13, tag: 'free' },
+    { id: '14', imageName: Image14, tag: 'pro' },
+    { id: '15', imageName: Image15, tag: 'free' },
+    { id: '16', imageName: Image16, tag: 'new' }
+];
 
+export const ImageGallery = () => {
     const [tag, setTag] = useState('all');
     const [filteredImages, setFilteredImages] = useState([]);
     const [selectedImage, setSelectedImage] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [zoomedIndex, setZoomedIndex] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [sliderImages, setSliderImages] = useState([]);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
-        setFilteredImages(tag === 'all' ? images : images.filter(image => image.tag === tag));
-    }, [tag, images]);
+        setFilteredImages(tag === 'all' ? imagesData : imagesData.filter(image => image.tag === tag));
+    }, [tag]);
 
     useEffect(() => {
         if (selectedImage) {
@@ -54,9 +54,28 @@ export const ImageGallery = () => {
         }
     }, [selectedImage, filteredImages]);
 
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (isModalOpen) {
+                if (event.key === 'Escape') {
+                    handleCloseModal();
+                } else if (event.key === 'ArrowLeft') {
+                    handlePrevImage();
+                } else if (event.key === 'ArrowRight') {
+                    handleNextImage();
+                }
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [isModalOpen, currentIndex, filteredImages]);
+
     const handleImageClick = (image, index) => {
         setSelectedImage(image);
-        setZoomedIndex(index);
+        setCurrentIndex(index);
         setIsModalOpen(true);
         setSliderImages(filteredImages.filter((img, idx) => idx !== index));
     };
@@ -67,45 +86,62 @@ export const ImageGallery = () => {
     };
 
     const handleNextImage = () => {
-        setZoomedIndex(prevIndex => (prevIndex + 1) % filteredImages.length);
-        setSelectedImage(filteredImages[zoomedIndex]);
-        setSliderImages(filteredImages.filter((img, idx) => idx !== zoomedIndex && idx !== currentIndex));
+        const newIndex = (currentIndex + 1) % filteredImages.length;
+        setCurrentIndex(newIndex);
+        setSelectedImage(filteredImages[newIndex]);
+        setSliderImages(filteredImages.filter((img, idx) => idx !== newIndex));
     };
 
     const handlePrevImage = () => {
-        setZoomedIndex(prevIndex => (prevIndex - 1 + filteredImages.length) % filteredImages.length);
-        setSelectedImage(filteredImages[zoomedIndex]);
-        setSliderImages(filteredImages.filter((img, idx) => idx !== zoomedIndex && idx !== currentIndex));
+        const newIndex = (currentIndex - 1 + filteredImages.length) % filteredImages.length;
+        setCurrentIndex(newIndex);
+        setSelectedImage(filteredImages[newIndex]);
+        setSliderImages(filteredImages.filter((img, idx) => idx !== newIndex));
+    };
+
+    const handleMenuToggle = () => {
+        setIsMenuOpen(!isMenuOpen);
     };
 
     return (
-        <div className="text-xl text-center px-5 py-3">  
-            <div className="flex flex-wrap justify-center mb-4">
-                <TagButton name="all" tagActive={tag === 'all'} handleSetTag={setTag} /> 
-                <TagButton name="new" tagActive={tag === 'new'} handleSetTag={setTag} /> 
-                <TagButton name="free" tagActive={tag === 'free'} handleSetTag={setTag} /> 
-                <TagButton name="pro" tagActive={tag === 'pro'} handleSetTag={setTag} />
+        <div className="text-xl text-center px-5 py-3">
+            <div className="mt-16 flex flex-col md:flex-row">
+                {/* Tag Buttons */}
+                <div className="flex items-center md:hidden">
+                    <button className="p-2 rounded-md bg-gray-300" onClick={handleMenuToggle}>
+                        <i className="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+                <div className={`flex flex-col md:flex-col md:items-center md:w-1/6 mb-4 md:mb-0 transition-all duration-300 ${isMenuOpen ? 'block' : 'hidden'} md:block`}>
+                    <TagButton name="all" tagActive={tag === 'all'} handleSetTag={setTag} />
+                    <TagButton name="new" tagActive={tag === 'new'} handleSetTag={setTag} />
+                    <TagButton name="free" tagActive={tag === 'free'} handleSetTag={setTag} />
+                    <TagButton name="pro" tagActive={tag === 'pro'} handleSetTag={setTag} />
+                </div>
+                {/* Image Grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 w-full md:w-5/6">
+                    {filteredImages.map((image, index) => (
+                        <div key={image.id} className="image-card">
+                            <img
+                                className="w-full h-auto cursor-pointer"
+                                src={image.imageName}
+                                alt=""
+                                onClick={() => handleImageClick(image, index)}
+                            />
+                        </div>
+                    ))}
+                </div>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                {filteredImages.map((image, index) => (
-                    <div key={image.id} className="image-card">
-                        <img
-                            className="w-full h-auto cursor-pointer"
-                            src={image.imageName}
-                            alt=""
-                            onClick={() => handleImageClick(image, index)}
-                        />
-                    </div>
-                ))}
-            </div>
-            {selectedImage && (
+
+            {/* Modal */}
+            {isModalOpen && selectedImage && (
                 <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75">
-                    <div className="relative w-full h-full flex items-center justify-center">
+                    <div className="relative w-full h-full flex items-center justify-center z-50">
                         <button
                             className="absolute top-1/2 transform -translate-y-1/2 left-4 text-white hover:text-gray-300"
                             onClick={handlePrevImage}
                         >
-                            Prev
+                            <i className="fa-solid fa-arrow-left"></i>
                         </button>
                         <div className="max-w-full max-h-full flex items-center justify-center">
                             <img
@@ -118,18 +154,20 @@ export const ImageGallery = () => {
                             className="absolute top-1/2 transform -translate-y-1/2 right-4 text-white hover:text-gray-300"
                             onClick={handleNextImage}
                         >
-                            -Next-
+                            <i className="fa-solid fa-arrow-right"></i>
                         </button>
                         <button
                             className="absolute top-4 right-4 text-white hover:text-gray-300"
                             onClick={handleCloseModal}
                         >
-                            Close
+                            <i className="fa-regular fa-circle-xmark"></i>
                         </button>
                     </div>
                 </div>
             )}
-            {selectedImage && (
+
+            {/* Slider */}
+            {isModalOpen && (
                 <div className="fixed inset-x-0 bottom-0 flex items-center justify-center z-50">
                     <div className="bg-white p-2 rounded-lg shadow-lg">
                         <div className="flex items-center justify-center">
@@ -152,7 +190,11 @@ export const ImageGallery = () => {
 
 const TagButton = ({ name, handleSetTag, tagActive }) => {
     return (
-        <button className={`px-4 py-2 mr-2 rounded-lg ${tagActive ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-700'}`} onClick={() => handleSetTag(name)}>
+        <button
+            className={`px-7 py-2 mb-2 rounded-lg ${tagActive ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-700'}`}
+            onClick={() => handleSetTag(name)}
+            style={{ display: 'block' }} 
+        >
             {name.toUpperCase()}
         </button>
     );
