@@ -83,7 +83,7 @@ export const Navbar = () => {
               <Link to="" className="py-2 px-3 rounded-md border cursor-pointer">
                 Sign In
               </Link>
-              <Link to="" className="bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md cursor-pointer">
+              <Link to="" className="bg-gradient-to-r from-violet-400 to-orange-800 py-2 px-3 rounded-md cursor-pointer">
                 Sign Up
               </Link>
             </div>
